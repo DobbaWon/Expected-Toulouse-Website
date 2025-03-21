@@ -1,3 +1,5 @@
+import "FixturesPage.css";
+
 function FixturesPage(){
     return (<></>)
 }

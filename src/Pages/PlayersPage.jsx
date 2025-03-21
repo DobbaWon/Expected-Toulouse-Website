@@ -1,3 +1,5 @@
+import "PlayersPage.css";
+
 function PlayersPage(){
     return (<></>)
 }

@@ -1,3 +1,5 @@
+import "HistoryPage.css";
+
 function HistoryPage(){
     return (<></>)
 }

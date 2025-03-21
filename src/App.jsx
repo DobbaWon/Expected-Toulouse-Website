@@ -9,7 +9,7 @@ import OrdersPage from "./Pages/Admin Pages/OrdersPage";
 import RatingPage from "./Pages/Admin Pages/RatingPage";
 
 function App() {
-    return (<></>)
+    return (<><LoginPage/></>)
 }
 
 export default App;

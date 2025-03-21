@@ -1,3 +1,5 @@
+import "ClubShopPage.css";
+
 function ClubShopPage(){
     return (<></>)
 }

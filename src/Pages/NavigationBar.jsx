@@ -1,3 +1,5 @@
+import "NavigationBar.css";
+
 function NavigationBar(){
     return (<></>)
 }

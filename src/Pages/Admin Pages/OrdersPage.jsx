@@ -1,3 +1,5 @@
+import "./OrdersPage.css";
+
 function OrdersPage(){
     return (<></>)
 }
