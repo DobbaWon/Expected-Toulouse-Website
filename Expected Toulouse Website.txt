@@ -1,0 +1,54 @@
+Features
+- Home Page
+- Club Shop
+- Fixtures and Results
+- League Table
+- Player biographies
+- Club History
+
+
+- Top Left     - Club Badge
+- Top 	       - Navigation Bar (Home, Club Shop, Fixtures and Results, Players, History, Admin)
+** CONTENTS OF LOADED PAGE
+- Instagram Link
+- Terms of Use, Privacy Policy, Accessibility, Company Details, Contact Us
+- (C) Expected Toulouse 2024
+
+
+Home Page
+- Latest Instagram Post
+- Next Match, Previous Match
+- Home Kit, Keeper Kit, Linked to Club Shop
+- Club Interviews, MOTMs, DOTDs
+
+
+Club Shop
+- Home Kit, Keeper Kit
+  - Onclick:
+    - Size [S][M][L][XL]
+    - Name (Pre-sets)
+    - Number (Pre-sets)
+    - Submit Request
+
+
+Fixtures and Results
+- Fixture Table on the Left
+- Results Table in the Centre
+- League Table on the Right
+
+
+Player Biographies
+- Forwards
+- Midfielders
+- Defenders
+- Goalkeepers
+  - Cards With images of players on them, from left to right, on click, flip the card, then reveal that player's biography, scrollable
+
+Club History
+- Background Image - Dobby Dick
+- Text in White, aligned centrally
+
+
+
+
+
