@@ -1,7 +1,13 @@
-import './App.css';
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
 
 function App() {
-  return (<></>)
+  return (
+    <div>
+      <Header />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
