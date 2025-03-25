@@ -1,0 +1,20 @@
+nav {
+    display: flex;
+    background-color: grey;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    flex: 1;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin: 0 1rem;
+}
+
+nav a:hover{
+    color: black;
+} 
