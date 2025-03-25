@@ -1,9 +1,12 @@
 import "./Header.css";
 
+import Navbar from "./Navbar/Navbar";
+
 function Header(){
     return (
         <header className="header">
-            <h1>My Website</h1>
+            <img src="/Logo.jpg" alt="Logo" />
+            <Navbar />
         </header>
     );
 }
