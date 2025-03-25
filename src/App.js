@@ -13,13 +13,15 @@ function App() {
     <Router>
       <Header />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<ClubShop />} />
-        <Route path="/history" element={<History />} />
-        <Route path="/fixtures" element={<Fixtures />} />
-        <Route path="/players" element={<Players />} />
-      </Routes>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/shop" element={<ClubShop />} />
+          <Route path="/history" element={<History />} />
+          <Route path="/fixtures" element={<Fixtures />} />
+          <Route path="/players" element={<Players />} />
+        </Routes>
+      </div>
       
       <Footer />
     </Router>
