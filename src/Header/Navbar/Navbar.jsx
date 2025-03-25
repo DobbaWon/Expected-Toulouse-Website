@@ -1,25 +1,25 @@
 import "./Navbar.css";
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-600 text-white p-4 shadow-lg">
-      <ul className="flex space-x-4">
+    <nav>
+       <ul>
         <li>
-          <Link to="/" className="hover:underline">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/shop" className="hover:underline">Club Shop</Link>
+          <Link to="/shop">Club Shop</Link>
         </li>
         <li>
-          <Link to="/fixtures" className="hover:underline">Fixtures and Results</Link>
+          <Link to="/fixtures">Fixtures and Results</Link>
         </li>
         <li>
-          <Link to="/players" className="hover:underline">Players</Link>
+          <Link to="/players">Players</Link>
         </li>
         <li>
-          <Link to="/history" className="hover:underline">History</Link>
+          <Link to="/history">History</Link>
         </li>
       </ul>
     </nav>
