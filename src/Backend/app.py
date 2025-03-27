@@ -185,6 +185,51 @@ def display_future_fixtures():
     else:
         return jsonify({'message': 'File not found'}), 404
 
+@app.route('/display/get-latest-fixture', methods=['GET'])
+def get_latest_fixture():
+    latest_fixture = None
+
+    file_path = "PreviousFixtures.txt"
+    with open(file_path, "r", encoding="utf-8") as file:
+        file_content = file.read()
+
+    lines = file_content.split("\n")[:5] # The latest fixtures for all teams
+    for i in range(len(lines)):
+        if "EXPECTED TOULOUSE" in lines[i]:
+            latest_fixture = lines[i]
+            break
+    
+    else:
+        return jsonify({'message': 'Fixture not found'}), 404
+    
+    return jsonify({'latestFixture': latest_fixture}), 200
+
+@app.route('/display/get-next-fixture', methods=['GET'])
+def get_next_fixture():
+    next_fixture = None
+    next_fixture_date = None
+    next_fixture_time = None
+
+    file_path = "FutureFixtures.txt"
+    with open(file_path, "r", encoding="utf-8") as file:
+        file_content = file.read()
+
+    lines = file_content.split("\n")[:5]
+    for i in range(len(lines)):
+        if "EXPECTED TOULOUSE" in lines[i]:
+            next_fixture_time = lines[i][:5] # Get the time of the fixture
+            next_fixture = lines[i][5:] # Skip the time
+            next_fixture_date = lines[0][5:] # Skip the "View:"
+            break
+    
+    else:
+        return jsonify({'message': 'Fixture not found'}), 404
+    
+    return jsonify(
+        {'next_fixture': next_fixture,
+         'next_fixture_date': next_fixture_date,
+         'next_fixture_time': next_fixture_time}), 200
+
 if __name__ == "__main__":
     app.run(debug=True)
 

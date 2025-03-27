@@ -6,6 +6,8 @@ function Fixtures() {
     const [leagueTable, setLeagueTable] = useState([]);
     const [previousFixtures, setPreviousFixtures] = useState('');
     const [futureFixtures, setFutureFixtures] = useState('');
+    const [nextFixture, setNextFixture] = useState([]);
+    const [lastFixture, setLastFixture] = useState('');
     const [error, setError] = useState('');
 
     // Fetch the League Table, Previous Fixtures, and Next Fixtures from backend when this page is loaded:
@@ -34,6 +36,19 @@ function Fixtures() {
             const futureFixturesData = await futureFixturesResponse.json();
             setFutureFixtures(futureFixturesData.file_content);
 
+            const lastFixture = await fetch('http://127.0.0.1:5000/display/get-latest-fixture');
+            const lastFixtureData = await lastFixture.json();
+            setLastFixture(lastFixtureData.latestFixture);
+
+            const nextFixture = await fetch('http://127.0.0.1:5000/display/get-next-fixture');
+            const nextFixtureData = await nextFixture.json();
+            let fixture = [
+                nextFixtureData.next_fixture, 
+                nextFixtureData.next_fixture_date, 
+                nextFixtureData.next_fixture_time
+            ];
+            setNextFixture(fixture);
+
         } catch (err) {
             setError('Failed to load data: ' + err.message);
         }
@@ -44,7 +59,7 @@ function Fixtures() {
     }, []);
 
     return (
-        <div>
+        <div className="container">
             <h2>League Table</h2>
             <table>
                 <thead>
@@ -78,6 +93,20 @@ function Fixtures() {
 
             <h2>Future Fixtures</h2>
             <pre>{futureFixtures || 'Loading... (May have failed to load)'}</pre>
+
+            <h2>Next Fixture:</h2>
+            {nextFixture.length === 3 ? (
+                <p>
+                    <strong>Match:</strong> {nextFixture[0] || 'Unknown'} <br />
+                    <strong>Date:</strong> {nextFixture[1] || 'Unknown'} <br />
+                    <strong>Time:</strong> {nextFixture[2] || 'Unknown'}
+                </p>
+            ) : (
+                <p>Loading... (May have failed to load)</p>
+            )}
+
+            <h2>Last Fixture:</h2>
+            <pre>{lastFixture || 'Loading... (May have failed to load)'}</pre>
 
             {/* Show an error if one exists: */}
             {error && <div>{error}</div>}
