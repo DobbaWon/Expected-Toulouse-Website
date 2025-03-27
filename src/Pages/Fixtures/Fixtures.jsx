@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function FileContentDisplay() {
+function Fixtures() {
     // State variables to store the League Table, Previous Fixtures, Next Fixtures, and any error messages:
     const [leagueTable, setLeagueTable] = useState([]);
     const [previousFixtures, setPreviousFixtures] = useState('');
@@ -8,38 +8,37 @@ function FileContentDisplay() {
     const [error, setError] = useState('');
 
     // Fetch the League Table, Previous Fixtures, and Next Fixtures from backend when this page is loaded:
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // First trigger the scraping method
-                const scrapeResponse = await fetch('http://127.0.0.1:5000/scrape');
-                if (!scrapeResponse.ok) {
-                    throw new Error('Failed to trigger scraping.');
-                }
-
-                // Then, fetch the other data after scraping is complete
-                const leagueTableResponse = await fetch('http://127.0.0.1:5000/display/league-table');
-                const leagueTableData = await leagueTableResponse.json();
-                if (leagueTableData.leagueTable) {
-                    setLeagueTable(leagueTableData.leagueTable);
-                } else {
-                    setError('Failed to load League Table.');
-                }
-
-                const previousFixturesResponse = await fetch('http://127.0.0.1:5000/display/previous-fixtures');
-                const previousFixturesData = await previousFixturesResponse.json();
-                setPreviousFixtures(previousFixturesData.file_content);
-
-                const futureFixturesResponse = await fetch('http://127.0.0.1:5000/display/future-fixtures');
-                const futureFixturesData = await futureFixturesResponse.json();
-                setFutureFixtures(futureFixturesData.file_content);
-
-            } catch (err) {
-                setError('Failed to load data: ' + err.message);
+    const fetchData = async () => {
+        try {
+            // First trigger the scraping method
+            const scrapeResponse = await fetch('http://127.0.0.1:5000/scrape');
+            if (!scrapeResponse.ok) {
+                throw new Error('Failed to trigger scraping.');
             }
-        };
 
-        // Call the fetchData function
+            // Then, fetch the other data after scraping is complete
+            const leagueTableResponse = await fetch('http://127.0.0.1:5000/display/league-table');
+            const leagueTableData = await leagueTableResponse.json();
+            if (leagueTableData.leagueTable) {
+                setLeagueTable(leagueTableData.leagueTable);
+            } else {
+                setError('Failed to load League Table.');
+            }
+
+            const previousFixturesResponse = await fetch('http://127.0.0.1:5000/display/previous-fixtures');
+            const previousFixturesData = await previousFixturesResponse.json();
+            setPreviousFixtures(previousFixturesData.file_content);
+
+            const futureFixturesResponse = await fetch('http://127.0.0.1:5000/display/future-fixtures');
+            const futureFixturesData = await futureFixturesResponse.json();
+            setFutureFixtures(futureFixturesData.file_content);
+
+        } catch (err) {
+            setError('Failed to load data: ' + err.message);
+        }
+    };
+
+    useEffect(() => {
         fetchData();
     }, []);
 
@@ -85,4 +84,4 @@ function FileContentDisplay() {
     );
 }
 
-export default FileContentDisplay;
+export default Fixtures;
