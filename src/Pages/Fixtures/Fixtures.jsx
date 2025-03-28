@@ -60,54 +60,81 @@ function Fixtures() {
 
     return (
         <div className="container">
-            <h2>League Table</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Team Name</th>
-                        <th>Games Played</th>
-                        <th>Wins</th>
-                        <th>Draws</th>
-                        <th>Losses</th>
-                        <th>Goal Difference</th>
-                        <th>Points</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {leagueTable.map((team, index) => (
-                        <tr key={index}>
-                            <td>{team.teamName}</td>
-                            <td>{team.played}</td>
-                            <td>{team.won}</td>
-                            <td>{team.drawn}</td>
-                            <td>{team.lost}</td>
-                            <td>{team.goalDifference}</td>
-                            <td>{team.points}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className="flex-container">
+                <div className="league-table">
+                    <h2>League Table</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Team Name</th>
+                                <th>Games Played</th>
+                                <th>Wins</th>
+                                <th>Draws</th>
+                                <th>Losses</th>
+                                <th>Goal Difference</th>
+                                <th>Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {leagueTable.map((team, index) => (
+                                <tr key={index}>
+                                    <td>{team.teamName}</td>
+                                    <td>{team.played}</td>
+                                    <td>{team.won}</td>
+                                    <td>{team.drawn}</td>
+                                    <td>{team.lost}</td>
+                                    <td>{team.goalDifference}</td>
+                                    <td>{team.points}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
-            <h2>Previous Fixtures</h2>
-            <pre>{previousFixtures || 'Loading... (May have failed to load)'}</pre>
+                <div className="previous-fixtures">
+                    <h2>Previous Fixtures</h2>
 
-            <h2>Future Fixtures</h2>
-            <pre>{futureFixtures || 'Loading... (May have failed to load)'}</pre>
+                    {previousFixtures.length > 0 ? (
+                        previousFixtures.map((fixture, index) => (
+                            <p key={index}>{fixture}</p>
+                        ))
+                    ) : (
+                        <p>Loading... (May have failed to load)</p>
+                    )}
+                </div>
 
-            <h2>Next Fixture:</h2>
-            {nextFixture.length === 3 ? (
-                <p>
-                    <strong>Match:</strong> {nextFixture[0] || 'Unknown'} <br />
-                    <strong>Date:</strong> {nextFixture[1] || 'Unknown'} <br />
-                    <strong>Time:</strong> {nextFixture[2] || 'Unknown'}
-                </p>
-            ) : (
-                <p>Loading... (May have failed to load)</p>
-            )}
+                <div className="future-fixtures">
+                    <h2>Future Fixtures</h2>
+                    {futureFixtures.length > 0 ? (
+                        futureFixtures.map((fixture, index) => (
+                            <p key={index}>{fixture}</p>
+                        ))
+                    ) : (
+                        <p>Loading... (May have failed to load)</p>
+                    )}
+                </div>
+            </div>
 
-            <h2>Last Fixture:</h2>
-            <pre>{lastFixture || 'Loading... (May have failed to load)'}</pre>
+            {/* Outside of the flex container */}
+            <div className="close-fixtures">
+                <div className="next-fixture">
+                    <h2>Next Fixture:</h2>
+                        {nextFixture.length === 3 ? (
+                            <p>
+                                <strong>Match:</strong> {nextFixture[0] || 'Unknown'} <br />
+                                <strong>Date:</strong> {nextFixture[1] || 'Unknown'} <br />
+                                <strong>Time:</strong> {nextFixture[2] || 'Unknown'}
+                            </p>
+                        ) : (
+                            <p>Loading... (May have failed to load)</p>
+                        )}
+                </div>
 
+                <div className="last-fixture">
+                    <h2>Last Fixture:</h2>
+                    <pre>{lastFixture || 'Loading... (May have failed to load)'}</pre>
+                </div>
+            </div>
             {/* Show an error if one exists: */}
             {error && <div>{error}</div>}
         </div>

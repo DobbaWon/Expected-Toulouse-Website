@@ -171,7 +171,16 @@ def display_previous_fixtures():
     if os.path.exists(file_path):
         with open(file_path, "r", encoding="utf-8") as file:
             file_content = file.read()
-        return jsonify({'file_content': file_content}), 200
+
+    # Getting just Expected Toulouse fixtures:
+    lines = file_content.split("\n")
+    previous_fixtures = []
+    for i in range(len(lines)):
+        if "EXPECTED TOULOUSE" in lines[i]:
+            previous_fixtures.append(lines[i] + "\n")
+
+    if (previous_fixtures):
+        return jsonify({'file_content': previous_fixtures}), 200
     else:
         return jsonify({'message': 'File not found'}), 404
 
@@ -181,7 +190,16 @@ def display_future_fixtures():
     if os.path.exists(file_path):
         with open(file_path, "r", encoding="utf-8") as file:
             file_content = file.read()
-        return jsonify({'file_content': file_content}), 200
+
+    # Getting just Expected Toulouse fixtures:
+    lines = file_content.split("\n")
+    future_fixtures = []
+    for i in range(len(lines)):
+        if "EXPECTED TOULOUSE" in lines[i]:
+            future_fixtures.append(lines[i] + "\n")
+        
+    if (future_fixtures):
+        return jsonify({'file_content': future_fixtures}), 200
     else:
         return jsonify({'message': 'File not found'}), 404
 
