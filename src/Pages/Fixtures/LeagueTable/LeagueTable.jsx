@@ -27,11 +27,10 @@ function LeagueTable(){
     return (
         <div className="container">
             <FixturesNavbar />
-            <h2>League Table</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Team Name</th>
+                        <th className="team-name">Team Name</th>
                         <th>Games Played</th>
                         <th>Wins</th>
                         <th>Draws</th>

@@ -1,6 +1,11 @@
 table{
-    font-size: 18px;
+    font-size: 2rem;
     text-align: left;
+}
+
+.team-name{
+    min-width: 1500px;
+    white-space: nowrap;
 }
 
 th, td {
