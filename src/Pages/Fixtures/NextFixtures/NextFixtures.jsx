@@ -35,34 +35,36 @@ function NextFixtures() {
     }, []);
 
     return (
-        <div className="container">
+        <div>
             <FixturesNavbar />
+            
+            <div className="fixtures-container">
+                <div className="next-fixture">
+                    <h2 className="datetime">{nextFixture[1]} - {nextFixture[2]}</h2>
+                    <h2>Next Fixture:</h2>
+                        {nextFixture.length === 3 ? (
+                            <p>
+                                {nextFixture[0]} 
+                            </p>
+                        ) : (
+                            <p>Loading... (May have failed to load)</p>
+                        )}
+                </div>
 
-            <div className="future-fixtures">
-                <h2>Future Fixtures</h2>
-                {futureFixtures.length > 0 ? (
-                    futureFixtures.map((fixture, index) => (
-                        <p key={index}>{fixture}</p>
-                    ))
-                ) : (
-                    <p>Loading... (May have failed to load)</p>
-                )}
-            </div>
-            <div className="next-fixture">
-                <h2>Next Fixture:</h2>
-                    {nextFixture.length === 3 ? (
-                        <p>
-                            <strong>Match:</strong> {nextFixture[0] || 'Unknown'} <br />
-                            <strong>Date:</strong> {nextFixture[1] || 'Unknown'} <br />
-                            <strong>Time:</strong> {nextFixture[2] || 'Unknown'}
-                        </p>
+                <div className="future-fixtures">
+                    <h2>Future Fixtures</h2>
+                    {futureFixtures.length > 0 ? (
+                        futureFixtures.map((fixture, index) => (
+                            <p key={index}>{fixture}</p>
+                        ))
                     ) : (
                         <p>Loading... (May have failed to load)</p>
                     )}
-            </div>
+                </div>
 
-            {/* Show an error if one exists: */}
-            {error && <div>{error}</div>}
+                {/* Show an error if one exists: */}
+                {error && <div>{error}</div>}
+            </div>
         </div>
     )
 }
