@@ -6,5 +6,19 @@ Version 1.0:
  - History Page featuring a description of the team {FINAL PRODUCT}
  - Players Page featuring biographies of the players, displayed in a UX-friendly way
  - Club Shop "Coming Soon"
+ - Instagram, YouTube links in footer
 
 Version 1.1:
+ - Players Page complete overhaul for aesthetics
+ - Fixtures Page featuring countdown to next game
+
+Version 1.2:
+ - Fixtures Page complete overhaul for aesthetics
+ - Header complete overhaul for aesthetics
+
+Version 2:
+ - Club Shop implemented with secure payment
+
+Version 3: 
+ - Login for admins, hidden endpoints
+ - Blog maker page for home page blog
