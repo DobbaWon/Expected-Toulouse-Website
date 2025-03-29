@@ -1,0 +1,10 @@
+List of versions for the website. Made to avoid scope creep and focus on a deliverable product
+
+Version 1.0:
+ - Working Fixtures, Results, Table Page, displaying data in a UX-friendly way
+ - Working Home Page featuring YouTube Channel, Instagram Embeds
+ - History Page featuring a description of the team {FINAL PRODUCT}
+ - Players Page featuring biographies of the players, displayed in a UX-friendly way
+ - Club Shop "Coming Soon"
+
+Version 1.1:
