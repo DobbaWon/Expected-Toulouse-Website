@@ -55,7 +55,7 @@ function NextFixtures() {
                     <h2>Future Fixtures</h2>
                     {futureFixtures.length > 0 ? (
                         futureFixtures.map((fixture, index) => (
-                            <p key={index}>{
+                            <p key={index} className="next-fixtures">{
                                 fixture}</p>
                         ))
                     ) : (
