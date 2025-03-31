@@ -1,24 +1,20 @@
 List of versions for the website. Made to avoid scope creep and focus on a deliverable product
 
 Version 1.0:
- - Working Fixtures, Results, Table Page, displaying data in a UX-friendly way
- - Working Home Page featuring YouTube Channel, Instagram Embeds
- - History Page featuring a description of the team {FINAL PRODUCT}
- - Players Page featuring biographies of the players, displayed in a UX-friendly way
- - Club Shop "Coming Soon"
- - Instagram, YouTube links in footer
+ [x] Working Fixtures, Results, Table Page, displaying data in a UX[ ]friendly way
+ [ ] Working Home Page featuring YouTube Channel, Instagram Embeds
+ [ ] History Page featuring a description of the team {FINAL PRODUCT}
+ [ ] Players Page featuring biographies of the players, displayed in a UX[ ]friendly way
+ [x] Club Shop "Coming Soon"
+ [ ] Instagram, YouTube links in footer
 
 Version 1.1:
- - Players Page complete overhaul for aesthetics
- - Fixtures Page featuring countdown to next game
+ [ ] Players Page complete overhaul for aesthetics
+ [ ] Fixtures Page featuring countdown to next game
 
 Version 1.2:
- - Fixtures Page complete overhaul for aesthetics
- - Header complete overhaul for aesthetics
+ [ ] Fixtures Page complete overhaul for aesthetics
+ [ ] Header complete overhaul for aesthetics
 
 Version 2:
- - Club Shop implemented with secure payment
-
-Version 3: 
- - Login for admins, hidden endpoints
- - Blog maker page for home page blog
+ [ ] Club Shop implemented with secure payment
