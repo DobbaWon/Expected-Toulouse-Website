@@ -1,0 +1,36 @@
+.fixtures-container{
+}
+
+.last-fixture{
+    text-align: center;
+    border: 10px solid black;
+    min-height: 850px;
+    background-color: blue;
+    color: white;
+    border-radius: 8px;
+
+    .datetime{
+        text-align: left;
+    }
+    h2{
+        font-size: 3.5rem;
+    }
+    p{
+        font-size: 5rem;
+    }
+}
+
+.last-fixtures{
+    font-size: 1.8rem;
+    line-height: 1.8;
+}
+.future-fixtures{
+    text-align: center;
+    background-color: black;
+    padding: 1rem 3rem;
+
+    color: white;
+    h2{
+        font-size: 3.5rem;
+    }
+}

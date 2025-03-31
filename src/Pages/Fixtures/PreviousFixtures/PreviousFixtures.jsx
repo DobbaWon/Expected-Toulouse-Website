@@ -18,7 +18,12 @@ function PreviousFixtures() {
 
             const lastFixture = await fetch('http://127.0.0.1:5000/display/get-latest-fixture');
             const lastFixtureData = await lastFixture.json();
-            setLastFixture(lastFixtureData.latestFixture);
+            let fixture = [
+                lastFixtureData.latest_fixture, 
+                lastFixtureData.latest_fixture_date, 
+                lastFixtureData.latest_fixture_time
+            ];
+            setLastFixture(fixture);
         }
         catch (err) {
             console.error(err);
@@ -31,27 +36,37 @@ function PreviousFixtures() {
     }, []);
     
     return (
-        <div className="container">
+        <div>
             <FixturesNavbar />
+            
+            <div className="fixtures-container">
+                <div className="last-fixture">
+                    <h2 className="datetime">{lastFixture[1]} - {lastFixture[2]}</h2>
+                    <h2>Latest Result:</h2>
+                        {lastFixture.length === 3 ? (
+                            <p>
+                                {lastFixture[0]} 
+                            </p>
+                        ) : (
+                            <p>Loading... (May have failed to load)</p>
+                        )}
+                </div>
 
-            <div className="previous-fixtures">
-                <h2>Previous Fixtures</h2>
+                <div className="results">
+                    <h2>Results</h2>
+                    {previousFixtures.length > 0 ? (
+                        previousFixtures.map((fixture, index) => (
+                            <p key={index} className="latest-fixtures">{
+                                fixture}</p>
+                        ))
+                    ) : (
+                        <p>Loading... (May have failed to load)</p>
+                    )}
+                </div>
 
-                {previousFixtures.length > 0 ? (
-                    previousFixtures.map((fixture, index) => (
-                        <p key={index}>{fixture}</p>
-                    ))
-                ) : (
-                    <p>Loading... (May have failed to load)</p>
-                )}
+                {/* Show an error if one exists: */}
+                {error && <div>{error}</div>}
             </div>
-            <div className="last-fixture">
-                <h2>Last Fixture:</h2>
-                <pre>{lastFixture || 'Loading... (May have failed to load)'}</pre>
-            </div>
-
-            {/* Show an error if one exists: */}
-            {error && <div>{error}</div>}
         </div>
     )
 }
