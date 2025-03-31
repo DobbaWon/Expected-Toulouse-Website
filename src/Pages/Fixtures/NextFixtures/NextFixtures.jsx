@@ -55,7 +55,8 @@ function NextFixtures() {
                     <h2>Future Fixtures</h2>
                     {futureFixtures.length > 0 ? (
                         futureFixtures.map((fixture, index) => (
-                            <p key={index}>{fixture}</p>
+                            <p key={index}>{
+                                fixture}</p>
                         ))
                     ) : (
                         <p>Loading... (May have failed to load)</p>

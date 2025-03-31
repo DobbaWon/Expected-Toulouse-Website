@@ -195,8 +195,10 @@ def display_future_fixtures():
     lines = file_content.split("\n")
     future_fixtures = []
     for i in range(len(lines)):
+        if "View:" in lines[i]:
+            future_fixtures.append(lines[i][5:] + " - ")
         if "EXPECTED TOULOUSE" in lines[i]:
-            future_fixtures.append(lines[i] + "\n")
+            future_fixtures[len(future_fixtures) - 1] += lines[i][:5] + " -" + lines[i][5:]
         
     if (future_fixtures):
         return jsonify({'file_content': future_fixtures}), 200
