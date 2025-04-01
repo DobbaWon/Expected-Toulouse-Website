@@ -1,7 +1,11 @@
 import "./History.css";
 
 function History() {
-    return (<></>);
+    return (
+        <div>
+            
+        </div>
+    );
 }
 
 export default History;
